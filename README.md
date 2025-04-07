@@ -10,7 +10,7 @@ This guide will walk you through the steps to clone a Node.js website and set it
 Before you begin, make sure you have the following installed on your machine:
 - Git
 - Node.js (v14.x or later)
-- npm (Node Package Manager)
+- npm 
 
 ## Steps
 

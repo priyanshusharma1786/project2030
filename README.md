@@ -1,3 +1,6 @@
+Developers: Priyanshu Sharma and Navneet Suman
+
+
 npm# Blogger local Setup Guide
 
 This guide will walk you through the steps to clone a Node.js website and set it up on your local machine.

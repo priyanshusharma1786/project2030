@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head') %>
+</head>
+
+<body>
+  <div class="container">
+    <header id="header">
+      <%- include('partials/navbar', { currentPage: 'home', user: user }) %>
+    </header>
+
+    <hr />
+    <main class="d-flex jusitfy-content-center align-items-center flex-column"  role="main">
+      <div id="blogPost" class="container">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="card-title" id="postTitle"></h1>
+            <h3 id="postDate"></h3>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Author: <span id="postAuthor"></span></p>
+            <p class="card-text" id="postMessage"></p>
+            </p>
+            <!-- Add more fields as needed -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Blogs Section -->
+      <section class="container mt-5 w-75 m-auto" id="blogSection">
+        <h2 class="text-center mb-4">Latest Blogs <%= title %></h2>
+        <div class="row" id="blogCardsRow">
+          <!-- Blog cards will be dynamically added here -->
+        </div>
+      </section>
+
+    </main>
+    <div class="h4 text-center">
+      <hr>
+      <br />
+      <%- include('partials/footer') %>
+
+    </div>
+
+
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/home.js"></script>
+  <!-- <script src="js/partials.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head') %>
+    <title>Register - SmartBlog</title>
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <%- include('partials/navbar', { currentPage: 'register', user: user }) %>
+        </header>
+        <hr />
+        <main role="main">
+            <div class="card w-50 mx-auto">
+                <div class="card-header bg-success text-white text-center">
+                    <h2>Create Account</h2>
+                </div>
+                <div class="card-body">
+                    <% if (messages.error[0]) { %>
+                        <div class="alert alert-danger"><%= messages.error %></div>
+                    <% } %>
+                    <% if (messages.success) { %>
+                        <div class="alert alert-success"><%= messages.success %></div>
+                    <% } %>
+                    
+                    <form action="/register" method="POST" id="registerForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" 
+                                   placeholder="Enter username" required minlength="3">
+                            <div class="invalid-feedback">Username must be at least 3 characters</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" 
+                                   placeholder="Enter password" required minlength="6">
+                            <div class="invalid-feedback">Password must be at least 6 characters</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                   placeholder="Confirm password" required>
+                            <div class="invalid-feedback">Passwords must match</div>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Register</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Already have an account? <a href="/login">Login here</a>
+                </div>
+            </div>
+        </main>
+        <hr />
+        <%- include('partials/footer') %>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Client-side validation
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirmPassword');
+            
+            if (password.value !== confirmPassword.value) {
+                e.preventDefault();
+                confirmPassword.setCustomValidity("Passwords don't match");
+                confirmPassword.classList.add('is-invalid');
+            } else {
+                confirmPassword.setCustomValidity('');
+                confirmPassword.classList.remove('is-invalid');
+            }
+        });
+
+        // Real-time password matching feedback
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password');
+            if (this.value !== password.value) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+            }
+        });
+    </script>
+</body>
+</html>

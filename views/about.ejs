@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/head') %>
+</head>
+
+<body>
+  <div class="container">
+    <header id="header">
+      <%- include('partials/navbar', { currentPage: 'home', user: user }) %>
+    </header>
+    <hr />
+    <main role="main">
+      <div id="carouselExample" class="carousel slide bg-dark">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/logo.png" class="d-block w-50 m-auto" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/node.jpg" class="d-block w-50 m-auto" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/question.png" class="d-block w-50 m-auto" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-header bg-primary text-white text-center" role="heading">
+          About Us
+        </div>
+        <blockquote class="blockquote">
+          <p>
+            Developers: Priyanshu
+            Welcome to Blogger, where cutting-edge technology meets the art of blogging. In today's digital landscape,
+            content creation is not just about words on a page—it's about engaging audiences, driving conversations, and
+            making an impact. SmartBlog redefines the blogging experience by harnessing the power of artificial
+            intelligence to elevate content creation to new heights.</p>
+          <p>
+            Imagine a platform where generating compelling articles, crafting catchy headlines, and optimizing for
+            search engines is seamlessly integrated into your workflow. With SmartBlog, it's not just a dream—it's a
+            reality. Our AI-driven approach empowers bloggers, writers, and content creators of all levels to unleash
+            their creativity while leveraging the latest advancements in technology.
+          </p>
+        </blockquote>
+      </div>
+    </main>
+    <hr />
+    <div id="footer"> 
+      <%- include('partials/footer') %>
+    </div>
+
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
